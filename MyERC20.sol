@@ -68,6 +68,8 @@ contract MyERC20 is IERC20 {
         emit Approval(msg.sender, spender, amount);
         return true;
     }
+    //function that moves amount of tokens from sender to recipient by msg.sender if allowed to
+    //emit the Transfer event and returns true if transfer was successful
     function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool){
         require(amount <=allowed[sender][msg.sender]);
         require(amount <=balances[sender]);
